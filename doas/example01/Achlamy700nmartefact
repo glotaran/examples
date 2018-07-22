@@ -1,0 +1,474 @@
+Analyse
+f
+lnegstart t
+nsuml 1       # read all data, no averaging
+/home/ism200/data/syed/data/marc/1nm/HIBA1172DY_2.DAT
+wavelength boundaries -100.,7690.,0
+time index boundaries 0,123,0000
+t
+Iterations -10
+nfix 0
+linktol 0.5
+nparmulx 2 	# 2nd order dispersion
+lpermparmul t
+lautostartgaussmu f
+ldebug f
+ldebug2 f
+lambdacfix 700.0 	# center wavelength of the dispersion
+lposk t
+lscalxplot t
+lprogramweight f
+lscalx2 f
+lscalk f
+nsubtractuwres 0
+readplotname chlamyWT700nmartefact
+lKmatrix t
+lpermk t
+lpermkperexp t
+lpermkperexp2 t
+lToFrom t
+lnointerpolatec t
+lnormpulse t
+lexamp4 t
+lprodpar f
+ldivpar f
+nrelation 0
+lreadindexfixed t
+lreadindexsyntax t
+nfix -18 	# 18 fixed parameters
+lscaldat t
+ldebug f
+ldebug2 f
+lxpm f
+lnosum1 t
+nselefit 4
+1,2,3,4,5,6,7,8,9,
+lwritetime f
+lreadweightperl f
+lscal1 t
+jumpfraction 0.31
+nvibra 4 # 4 DOAS, cos and sin, 8 components in total
+nphi 6
+lartefact t # the DOAS artefact starts at spectrum 5 and has 8 components
+8,5
+Iterations 1
+1
+t
+t
+Fit covariance f
+Model 1
+Show chisq t
+Show start C f
+Show start E F
+Fit concentrations F
+Fit gauss t
+B parameters from concentration
+Total components 12 # four EADS plus 4 DOAS, cos and sin (8 components in total)
+Total rate constants 4 # sequential model with 4 components
+Total concentration 0.d0
+Fractions
+0.,0.,0.,0.,0.,0.,0.0, 0.0, 0.0,0.0,0.0, 
+nu, nw 0, 0
+          1           1           1           5 # 5 indices that define the K matrix for the sequential model, input to 1, then from 1 to 2 to 3 to 4 and 4 decays
+          1 0 1
+2 1 2
+3 2 3
+4 3 4
+4 4 7 # index 7 is the last index of the K matrix
+0,0,0,0
+1,2,3,4 # the four IRF indices
+Start parameters 
+1.d0 3.00191021      0.398853779     8.44753608E-02  3.31102014E-02 1.99999995E-05 3.31102014E-02		# the 7 parameters that define the K matrix
+ 41196.9023      12.9041157      222.555908      88.8726578      # the four decay rate parameters of the DOAS (in 1/ps)
+ 172.540680      256.013367      105.456551   45.5685043         # the four frequency  parameters of the DOAS  (in 1/cm)
+0.275649637 0.462641180     0.129131436 8.73516053E-02 # the four IRF parameters
+1,5,1 # indices of fixed parameters
+7,19,1 # indices of fixed parameters. only index 6 is a free parameter (this is conventional, since timu needs at least 1 parameter). index 6 is not used, so effectively all parameters are fixed here.
+0,0,0
+2.
+Ifig -1
+tstring t(ps)
+llogtspecial t
+lcolor t
+lnobiasplot t
+lnofitsvd t
+lnostudent t
+lplotfixedpar f
+lmarknr0 t
+ldrawerrmax t
+nsvd 3
+lcolarr t
+lsetlaxis t
+640,20,760
+nxtick 4
+lyminmax f
+lstring Wavelength (nm)$
+tstring Time (ps)$
+llinetperexp f
+llinetyparr f
+lxminmax f
+lyminmax t
+lyminmaxc t
+lpermuwres f
+Ifig 200
+1,2,3,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0.,1.
+-1,0.5
+More output t
+Show start E f
+Ifig -1
+llinetperexp f
+lfitted t
+ldatapoints f
+lnodatapoints t
+llogtspecial t
+lwritetrac f
+lcolarr t
+lcolorfit t
+lclipx t
+xgap 2.5
+xsize 10
+lsuper2 f
+lascal t
+tstring Time (ps)$
+charheight 0.6
+xoff 3.
+lpage t
+66.,80.
+lscalnewxplot t
+Ifig 8
+11,11,0,0,0,0,0,0
+1,1,0,0,0,0,0,0
+f,0
+2,f
+5,12,2,120
+1.
+More output t
+Show start E f
+Ifig -1
+llogtspecial f
+tstring Time (ps)$
+lcolor t
+ldrawerrmax t
+lnoeplot t
+lnocplot f
+lclipx t
+charheight 0.45
+ystring osc$
+lsmall t
+lpage t
+39.,14.5
+lcolarr t
+lxminmaxc t
+lprintfreq t
+lyminmaxc f
+lfreqindices t
+lcolarrperm t
+nspecplot 4
+1,2,3,4,5,6,7,8
+Ifig 3
+0,f,f
+1,2,3,4,5,6,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 
+0.3,0.7
+More output t
+Show start E f
+Ifig -1
+lcolor t
+ldrawerrmax t
+lnocplot t
+charheight 0.45
+lstring Wavelength (nm)$
+ystring norm DOAS$
+lsmall t
+lpage t
+32.,14.
+lcolarr t
+lxminmax t
+lyminmax t
+lfreqindices t
+lcolarrperm t
+nspecplot 4
+1,2,3,4,5,6,7,8
+Ifig 3
+0,f,f
+1,2,3,4,5,6,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 
+639,761
+0.,1.
+More output t
+Show start E f
+Ifig -1
+lcolor t
+ldrawerrmax t
+lnocplot t
+charheight 0.45
+lstring Wavelength (nm)$
+ystring phase/(2!p&)$
+lsmall t
+lpage t
+32.,14.
+lcolarr t
+lxminmax t
+labsyminmax t
+lyminmax f
+lphase t
+lfreqindices t
+lcolarrperm t
+nspecplot 4
+1,2,3,4,5,6,7,8
+Ifig 3
+0,f,t
+f
+1,2,3,4,5,6,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 
+639,761
+More output t
+Show start E f
+Ifig -1
+llogtspecial t
+ldrawerrmax t
+lsmall t
+lnocplot t
+lstring $
+lstring Wavelength (nm)$
+ystring EADS WT$
+charheight 0.5
+lcolarr t
+nxtick 4
+lxminmax t
+lyminmax t
+Ifig 3
+0,f,t
+t
+1,2,3,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+639,761
+-1,0.5
+More output t
+Show start E f
+Ifig -1
+llogtspecial t
+ldrawerrmax t
+lsmall t
+lnocplot t
+ystring n EADS WT$
+charheight 0.5
+lcolarr t
+nxtick 4
+lxminmax t
+lyminmax t
+lstring $
+lstring Wavelength (nm)$
+lpage t
+30.,16.
+Ifig 3
+0,f,t
+f
+1,2,3,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+639,761
+-1,0.5
+More output f
+f
+t
+f
+t
+WT700nm		# internally the DOAS contribution to the fit is computed, and saved as an "artefact" matrix. this "artefact" matrix is subtracted from the raw data, and the "DOAS-corrected" data are saved in a file WT700nm
+
+Iterations -1
+Iterations -1
+
+More output t
+Show start E f
+Ifig -1
+llinetperexp f
+lfitted t
+ldatapoints f
+lnodatapoints t
+llogtspecial t
+lwritetrac f
+lcolarr t
+lcolorfit t
+lclipx t
+xgap 2.5
+xsize 10
+lsuper2 t
+lascal t
+tstring Time (ps)$
+charheight 0.6
+lpage t
+66.,80.
+nixil 4
+-690
+-691
+-692
+-693
+Ifig 8
+11,11,9,9,0,0,0,0
+1,1,2,2,0,0,0,0
+f,0
+1,f
+5,12,2,250
+
+More output t
+Show start E f
+Ifig -1
+llogtspecial f
+tstring Time (ps)$
+lcolor t
+ldrawerrmax t
+lnoeplot t
+lnocplot f
+lclipx t
+charheight 0.45
+ystring osc$
+lsmall t
+lpage t
+39.,14.5
+lcolarr t
+lxminmaxc t
+lprintfreq t
+lyminmaxc f
+lfreqindices t
+lcolarrperm t
+nspecplot 4
+7,8,9,10
+Ifig 3
+0,f,f
+1,2,3,4,5,6,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 
+-0.1,0.3
+More output t
+Show start E f
+Ifig -1
+lcolor t
+ldrawerrmax t
+lnocplot t
+charheight 0.45
+lstring Wavelength (nm)$
+ystring norm DOAS$
+lsmall t
+lpage t
+32.,14.
+lcolarr t
+lxminmax t
+lyminmax t
+lfreqindices t
+lcolarrperm t
+nspecplot 4
+7,8,9,10
+Ifig 3
+0,f,f
+1,2,3,4,5,6,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 
+639,761
+0.,1.
+More output t
+Show start E f
+Ifig -1
+lcolor t
+ldrawerrmax t
+lnocplot t
+charheight 0.45
+lstring Wavelength (nm)$
+ystring phase/(2!p&)$
+lsmall t
+lpage t
+32.,14.
+lcolarr t
+lxminmax t
+labsyminmax t
+lyminmax f
+lphase t
+lfreqindices t
+lcolarrperm t
+nspecplot 4
+7,8,9,10
+Ifig 3
+0,f,t
+f
+1,2,3,4,5,6,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 
+639,761
+
+1,4,1
+13,13,1
+15,19,1
+20,21,1
+23,33,1
+34,40,1
+55,55,1
+
+5,720,750
+1,690,717
+
+sigma/trchlamyWT670_700nm_exc4RP0.sigmaperl
+7,8,1
+
+1,4,1
+13,13,1
+15,21,1
+23,36,1
+37,46,1
+47,58,1
+59,59,1
+
+lequarea2 t
+2
+3,5,663,720,663,720,1.d0,15.d-2
+3,2,663,720,658,715,1.d0,15.d-2
+
+4,5,687,693,1
+
+1,4,1
+13,13,1
+15,19,1
+20,21,1
+23,36,1
+37,46,1
+47,58,1
+59,59,1
+sigma/trchlamyWT670_700nm_exc3RP0.sigmaperl
+
+1,4,1
+7,8,1
+13,13,1
+15,15,1
+17,19,1
+20,21,1
+23,36,1
+37,46,1
+47,67,1
+72,72,1
+
+72,72,1
+72,1,0
+71,1
+
+12,1,0
+11,0.02
+
+1,4,1
+7,8,1
+13,13,1
+15,15,1
+17,19,1
+20,21,1
+23,36,1
+37,46,1
+47,67,1
+
+1,4,1
+13,13,1
+15,18,1
+22,66,1
+68,94,1
+
+1,4,1
+7,7,1
+12,13,1
+15,18,1
+22,66,1
+68,69,1
+71,101,1
+
+1,10,1
+12,13,1
+15,20,1
+22,89,1
+
+nmegacomplexes 1
+nspecnovibra 9
